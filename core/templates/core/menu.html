@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/menu.css' %}">
+
+{% endblock css %}
+{% block content %}
+
+
+
+<nav class="top-nav">
+   <a href="#food-menu">conheça nosso cardápio!</a>
+   <a href="#food-menu">
+      <img src="https://i.postimg.cc/fTzFMXKj/arrow-down.png" alt="Cardápio">
+   </a>
+</nav>
+<section id="home" class="home"></section>
+<div class="container" id="food-menu">
+   <div class="d-flex justify-content-center">
+      <h1 class="qr">MENU</h1>
+      <img src="{% static 'images/qr.png' %}" height="100px" width="100px" alt="">
+   </div>
+
+   <section class="content-menu">
+      <aside class="aside-float">
+         <nav class="nav-side">
+            {% for i in category %}
+            <a href="#{{i.id}}">{{i.title}}<img src="{{i.image.url}}" height="60px" width="60px" alt="buff image"></a>
+            {% endfor %}
+      </aside>
+      <section class="content-side">
+         {% for i in category %}
+
+
+         <section class="items" id="items">
+            <article class="plates" id="{{i.id}}">
+               <div class="header1" style="background-image:url('{{i.image.url}}');" > 
+                  <h1>{{i.title}}</h1>
+               </div>
+               <ul class="menu-items">
+                  {% for j in i.items.all %}
+
+
+                  <li class="item">
+                     <span class="food">{{j.name}}</span>
+                     <span class="price">{{j.price}}</span>
+                  </li>
+                  {% endfor %}
+               </ul>
+            </article>
+         </section>
+         {% endfor %}
+      </section>
+   </section>
+</div>
+
+
+
+
+{% endblock content %}
