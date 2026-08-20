@@ -93,11 +93,13 @@
 
 
 
-                        
-                        <form action="{% url 'social:begin' 'facebook' %}" method="post" >
+
+                        <form action="{% url 'social:begin' 'facebook' %}" method="post">
                             {% csrf_token %}
-                            <a href="" class="btn btn-outline-primary" title="continue with facebook"><i
-                                class="fa-brands fa-facebook"></i></a></form>
+                            <button type="submit" href="" class="btn btn-outline-primary"
+                                title="continue with facebook"><i class="fa-brands fa-facebook"></i></button>
+
+                        </form>
 
 
 
